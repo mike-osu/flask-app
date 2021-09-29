@@ -11,11 +11,11 @@ user = os.environ.get("340DBUSER")
 passwd = os.environ.get("340DBPW")
 db = os.environ.get("340DB")
 
-def connect_to_database(host = '127.0.0.1', user = user, passwd = passwd, db = db):
+def connect_to_database(host = host, user = user, passwd = passwd, db = db):
     '''
     connects to a database and returns a database objects
     '''
-    db_connection = MySQLdb.connect(host,user,passwd,db,3307)
+    db_connection = MySQLdb.connect(host,user,passwd,db,3306)
     return db_connection
 
 def execute_query(db_connection = None, query = None, query_params = ()):
