@@ -1,11 +1,14 @@
 from flask import Flask, render_template
 import database.db_connector as db
 from flask import Flask, render_template, json # add `json`
+import logging
 import os
 
 # Configuration
 
 app = Flask(__name__)
+logging.basicConfig(filename='record.log', level=logging.DEBUG, format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+
 db_connection = db.connect_to_database()
 
 # Routes 
