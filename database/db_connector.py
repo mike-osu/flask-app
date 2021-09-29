@@ -10,12 +10,13 @@ host = os.environ.get("340DBHOST")
 user = os.environ.get("340DBUSER")
 passwd = os.environ.get("340DBPW")
 db = os.environ.get("340DB")
+port = os.environ.get("340PORT")
 
-def connect_to_database(host = host, user = user, passwd = passwd, db = db):
+def connect_to_database(host = host, user = user, passwd = passwd, db = db, port = port):
     '''
     connects to a database and returns a database objects
     '''
-    db_connection = MySQLdb.connect(host,user,passwd,db,3306)
+    db_connection = MySQLdb.connect(host,user,passwd,db,int(port))
     db_connection.ping(True)
     return db_connection
 
